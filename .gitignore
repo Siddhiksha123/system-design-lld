@@ -1,0 +1,13 @@
+﻿*.class
+*.jar
+*.war
+.idea/
+.vscode/
+*.iml
+target/
+out/
+bin/
+*.log
+.DS_Store
+Thumbs.db
+ERROR_FIXES_LOG.txt
