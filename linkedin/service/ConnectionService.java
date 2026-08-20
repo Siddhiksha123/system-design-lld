@@ -1,5 +1,6 @@
 package linkedin.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import linkedin.constants.NotificationType;
 import linkedin.constants.Status;
@@ -44,10 +45,10 @@ public class ConnectionService {
         // From->To
     }
 
-    public void acceptConnection(String userId) {
+    public void acceptConnection(String connectionId) {
            // Check for existing connection , pass the id to repo , of exists or not 
 
-           Connection connection1 = connectionRepository.get(userId);
+           Connection connection1 = connectionRepository.get(connectionId);
            if( connection1 == null)
            {
               throw new Exception( "Connection does not exist" );
@@ -97,9 +98,26 @@ public class ConnectionService {
 
     // tomorrow's to do list. 
 
-    public List<Connection> getConnections(String userId) {
-        // iternate to all connections
-        // filterout the connections of particular user id.
-        // filterout the connections based on the status -> accepted;
+    public List<Connection> getAcceptedConnections(String userId) {
+         
+       // call the method getConnectionsByUserId from repo and get the connectionlist
+
+        List<Connection> finalconnectionlist = new ArrayList<>();
+
+        List<Connection> connectionlist = connectionRepository.getConnectionsByUserId(userId);
+
+       // filterout the connections based on the status -> accepted;
+
+       for(Connection conn : connectionlist)
+       {
+           if(conn.getConnectionStatus()==Status.ACCEPTED)
+           {
+              finalconnectionlist.add(conn);
+           }
+       }
+
+       return finalconnectionlist;
+
+       
     }
 }

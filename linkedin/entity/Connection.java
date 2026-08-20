@@ -24,6 +24,7 @@ public class Connection {
         this.updatedAt = createdAt;
     }
 
+    
     public String getId() {
         return id;
     }
