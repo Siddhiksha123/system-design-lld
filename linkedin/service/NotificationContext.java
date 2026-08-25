@@ -12,7 +12,7 @@ public class NotificationContext {
 
     public void sendNotification(Notification notification) throws Exception {
         if(notificationStrategy==null)
-            throw new Exception("Notification Strategy");
+            throw new Exception("No Notification Strategy chosen");
         notificationStrategy.sendNotification(notification);
     }
 }
