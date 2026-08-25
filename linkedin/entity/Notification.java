@@ -7,6 +7,8 @@ import linkedin.constants.NotificationType;
 public class Notification {
 
     private String id;
+    private User sender;
+    private User receiver;
     private String title;
     private String message;
     private NotificationType type;
@@ -28,6 +30,21 @@ public class Notification {
 
     public String getId() {
         return id;
+    }
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
     public String getTitle() {
         return title;
